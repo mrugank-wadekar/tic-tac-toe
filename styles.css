@@ -1,4 +1,6 @@
-
+body{
+    font-family: 'Cabin', sans-serif;
+}
 
 h1{
     text-align: center;
@@ -7,43 +9,115 @@ h1{
 .container{
     display: flex;
     justify-content: center;
-    align-content: center;
-    margin-top:10rem;
+    align-items: center;
+    margin-top:-3rem;
+    height: 60vh;
+
+
 }
 
 
 .board{
     display: grid;
-    background-image: linear-gradient(90deg,rgb(216, 213, 213),rgb(232, 197, 197));
+    /* background-image: linear-gradient(90deg,rgb(216, 213, 213),rgb(232, 197, 197)); */
     width: 300px;
     height: 300px;
+    gap:10px;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
+
     /* border: 1px solid black; */
 }
 
 .cell{
-    border:1px solid black;
+    /* border:1px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    border-radius: 11px;
+    /* background-color: rgb(208, 226, 241); */
+    box-shadow: 3px 3px 10px rgb(185, 183, 183),-3px -3px 12px rgb(229, 226, 226);
 }
 
+.cell:hover{
+    background-color: rgb(210, 227, 227);
+}
 
-.replay{
+/* .replay{
     margin-top: 1.5rem;
     display: flex;
     justify-content: center;
-}
 
-.replay button{
-    width: 80px;
-    height: 20px;
+} */
+
+
+.replay{
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 140px;
+    height: 40px;
+
+    
 }
 .result{
     text-align: center;
-    background-image: linear-gradient(90deg,rgb(157, 240, 157),rgb(229, 181, 237));
     font-size: 1.8rem;
-    margin-top: 2rem;
+    /* background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 7%, rgba(148,233,209,1) 100%); */
+    border-radius: 5px;
+    width: 50rem;
+    height: 3rem;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+
+}
+
+.results-container{
+    padding: 5px;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+
+
+
+
+
+/* CSS */
+.button-54 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
 }

@@ -2,146 +2,145 @@
 const game = {
   board: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
 
-  checkWinner: function (curr_index, pSign) {
+  checkWinner: function (curr_index) {
     curr_index = parseInt(curr_index);
-    //console.log(this.board);
     switch (curr_index) {
       case 0:
-        //console.log("case 0");
         if (this.board[0] == this.board[3] && this.board[3] == this.board[6]) {
-          return true;
+          return [true, 0, 3, 6];
         } else if (
           this.board[0] == this.board[1] &&
           this.board[1] == this.board[2]
         ) {
-          return true;
+          return [true, 0, 1, 2];
         } else if (
           this.board[0] == this.board[4] &&
           this.board[4] == this.board[8]
         ) {
-          return true;
+          return [true, 0, 4, 8];
         }
-        break;
+        return false;
 
       case 1:
-        //console.log("case 1");
         if (this.board[0] == this.board[1] && this.board[1] == this.board[2]) {
-          return true;
+          return [true, 0, 1, 2];
         } else if (
           this.board[1] == this.board[4] &&
           this.board[4] == this.board[7]
         ) {
-          return true;
+          return [true, 1, 4, 7];
         }
-        break;
+        return false;
 
       case 2:
-        //console.log("case 2");
         if (this.board[2] == this.board[1] && this.board[1] == this.board[0]) {
-          return true;
+          return [true, 0, 1, 2];
         } else if (
           this.board[2] == this.board[5] &&
           this.board[5] == this.board[8]
         ) {
-          return true;
+          return [true, 2, 5, 8];
         } else if (
           this.board[2] == this.board[4] &&
           this.board[4] == this.board[6]
         ) {
-          return true;
+          return [true, 2, 4, 6];
         }
-        break;
+        return false;
 
       case 3:
-        //console.log("case 3");
         if (this.board[0] == this.board[3] && this.board[3] == this.board[6]) {
-          return true;
+          return [true, 0, 3, 6];
         } else if (
           this.board[3] == this.board[4] &&
           this.board[4] == this.board[5]
         ) {
-          return true;
+          return [true, 3, 4, 5];
         }
-        break;
+        return false;
 
       case 4:
-        //console.log("case 4");
         if (this.board[0] == this.board[4] && this.board[4] == this.board[8]) {
-          return true;
+          return [true, 0, 4, 8];
         } else if (
           this.board[2] == this.board[4] &&
           this.board[4] == this.board[6]
         ) {
-          return true;
+          return [true, 2, 4, 6];
         } else if (
           this.board[1] == this.board[4] &&
           this.board[4] == this.board[7]
         ) {
-          return true;
+          return [true, 1, 4, 7];
         } else if (
           this.board[3] == this.board[4] &&
           this.board[4] == this.board[5]
         ) {
-          return true;
+          return [true, 3, 4, 5];
         }
-        break;
+        return false;
 
       case 5:
-        //console.log("case 5");
         if (this.board[2] == this.board[5] && this.board[5] == this.board[8]) {
-          return true;
+          return [true, 2, 5, 8];
         } else if (
           this.board[5] == this.board[4] &&
           this.board[4] == this.board[3]
         ) {
-          return true;
+          return [true, 3, 4, 5];
         }
-        break;
+        return false;
 
       case 6:
         //console.log("case 6");
         if (this.board[6] == this.board[7] && this.board[7] == this.board[8]) {
-          return true;
+          return [true, 6, 7, 8];
         } else if (
           this.board[6] == this.board[3] &&
           this.board[3] == this.board[0]
         ) {
-          return true;
+          return [true, 6, 3, 0];
         } else if (
           this.board[6] == this.board[4] &&
           this.board[4] == this.board[2]
         ) {
-          return true;
+          return [true, 6, 4, 2];
         }
+        return false;
+
         break;
 
       case 7:
         //console.log("case 7");
         if (this.board[6] == this.board[7] && this.board[7] == this.board[8]) {
-          return true;
+          return [true, 6, 7, 8];
         } else if (
           this.board[7] == this.board[4] &&
           this.board[4] == this.board[1]
         ) {
-          return true;
+          return [true, 7, 4, 1];
         }
+        return false;
+
         break;
 
       case 8:
         //console.log("case 8");
         if (this.board[8] == this.board[7] && this.board[7] == this.board[6]) {
-          return true;
+          return [true, 8, 7, 6];
         } else if (
           this.board[8] == this.board[5] &&
           this.board[5] == this.board[2]
         ) {
-          return true;
+          return [true, 8, 5, 2];
         } else if (
           this.board[8] == this.board[4] &&
           this.board[4] == this.board[0]
         ) {
-          return true;
+          return [true, 8, 4, 0];
         }
+        return false;
+
         break;
 
       default:
@@ -152,13 +151,11 @@ const game = {
   checkDraw: function () {
     if (!this.board.includes(-1)) {
       return true;
-    } 
-    else {
+    } else {
       return false;
     }
   },
 };
-
 //sets the data-cell attributes in html to respective index
 //in the array
 //IIFE
@@ -170,7 +167,6 @@ const game = {
     i++;
   });
 })();
-
 
 //Player Factory
 const Player = (pName, pSign) => {
@@ -185,7 +181,7 @@ const Player = (pName, pSign) => {
   return { getName, getSign };
 };
 
-const result =document.querySelector('.result');
+const result = document.querySelector(".result");
 
 const p1 = Player("Player 1", "X");
 const p2 = Player("Player 2", "O");
@@ -209,14 +205,26 @@ const playRound = (players) => {
         let curr_index = cell.getAttribute("data-cell");
 
         // Check if the game is over
-        if (game.checkWinner(curr_index, currentPlayer.getSign())) {
-          //console.log(currentPlayer.getName() + " wins!");
-          result.textContent+=" "+ currentPlayer.getName() + " wins!";
+
+        let winCells = game.checkWinner(curr_index);
+
+        if (winCells) {
+          //const cells = document.querySelectorAll(".cell");
+          const cell1 = document.querySelector(`[data-cell="${winCells[1]}"]`);
+          const cell2 = document.querySelector(`[data-cell="${winCells[2]}"]`);
+          const cell3 = document.querySelector(`[data-cell="${winCells[3]}"]`);
+
+          cell1.style.backgroundColor = "rgb(54, 218, 54)";
+          cell2.style.backgroundColor = "rgb(54, 218, 54)";
+          cell3.style.backgroundColor = "rgb(54, 218, 54)";
+
+          console.log(currentPlayer.getName() + " wins!");
+          result.textContent += " " + currentPlayer.getName() + " wins!";
 
           return;
         } else if (game.checkDraw()) {
           //console.log(" It's a draw!");
-          result.textContent+=" It's a draw!";
+          result.textContent += " It's a draw!";
           return;
         }
 
@@ -228,17 +236,18 @@ const playRound = (players) => {
 };
 
 //Replay function
-const replay =document.querySelector('.replay');
-replay.addEventListener("click",function replayGame(){
-    //Reset Array
-    game.board.fill(-1);
+const replay = document.querySelector(".replay");
+replay.addEventListener("click", function replayGame() {
+  //Reset Array
+  game.board.fill(-1);
 
-    //Update Display
-    const cells = document.querySelectorAll(".cell");
-    cells.forEach(cell=>{
-        cell.textContent="";
-    })
-    result.textContent="Winner : ";
-})
+  //Update Display
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.textContent = "";
+    cell.style.backgroundColor = "white";
+  });
+  result.textContent = "Winner : ";
+});
 
 playRound([p1, p2]);
