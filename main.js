@@ -183,8 +183,7 @@ const Player = (pName, pSign) => {
 
 const result = document.querySelector(".result");
 
-const p1 = Player("Player 1", "X");
-const p2 = Player("Player 2", "O");
+
 
 const playRound = (players) => {
   console.log("Round begins");
@@ -249,5 +248,9 @@ replay.addEventListener("click", function replayGame() {
   });
   result.textContent = "Winner : ";
 });
+
+
+const p1 = Player("Player 1", "X");
+const p2 = Player("Player 2", "O");
 
 playRound([p1, p2]);

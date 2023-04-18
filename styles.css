@@ -1,9 +1,14 @@
 body{
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Indie Flower', cursive;
+
+
 }
+
+
 
 h1{
     text-align: center;
+    font-size: 41px;
 }
 
 .container{
@@ -19,12 +24,13 @@ h1{
 
 .board{
     display: grid;
-    /* background-image: linear-gradient(90deg,rgb(216, 213, 213),rgb(232, 197, 197)); */
+    /* background-color: linear-gradient(90deg,rgb(216, 213, 213),rgb(232, 197, 197)); */
     width: 300px;
     height: 300px;
     gap:10px;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
+    
 
     /* border: 1px solid black; */
 }
@@ -32,10 +38,12 @@ h1{
 .cell{
     /* border:1px solid black; */
     display: flex;
+    font-style:italic;
     justify-content: center;
     align-items: center;
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-family: 'Rubik Wet Paint', cursive;
     border-radius: 11px;
     /* background-color: rgb(208, 226, 241); */
     box-shadow: 3px 3px 10px rgb(185, 183, 183),-3px -3px 12px rgb(229, 226, 226);
@@ -65,6 +73,8 @@ button{
 }
 .result{
     text-align: center;
+        /* font-family: 'Rubik Wet Paint', cursive; */
+
     font-size: 1.8rem;
     /* background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 7%, rgba(148,233,209,1) 100%); */
@@ -73,6 +83,8 @@ button{
     height: 3rem;
     border: 3px solid;
     padding: 0.25em 0.5em;
+    font-weight: 500;
+    text-transform: capitalize;
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
 
 }
@@ -86,10 +98,6 @@ button{
     
 
 }
-
-
-
-
 
 
 /* CSS */
